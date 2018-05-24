@@ -8,6 +8,7 @@ import { ThemeComponent } from './components/theme/theme.component';
 import { NewAgentComponent } from './components/new-agent/new-agent.component';
 import { AccordionModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     AccordionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

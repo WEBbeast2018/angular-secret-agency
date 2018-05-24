@@ -1,5 +1,15 @@
 article {
-  border: 1px solid gray;
-  padding: 10px;
-  margin: 4px auto;
+  display: flex;
+  height: 250px;
+  .agent-info {
+    border: 1px solid gray;
+    padding: 10px;
+    margin-left: 4px;
+    height: 100%;
+    width: 200px;
+  }
+  agm-map {
+    height: 100%;
+    width: 300px;
+  }
 }

@@ -14,22 +14,27 @@
 
     <p-accordion>
       <p-accordionTab *ngFor="let agent of agents" header="{{agent.name}}">
-        <div>
-          <label>Code:</label><span>{{agent.code}}</span>
-        </div>
-        <div>
-          <label>Name:</label><span>{{agent.name}}</span>
-        </div>
-        <br>
-        <label>Specialties:</label>
-        <ul>
-          <li *ngIf="agent.skills.explosives > 5">Explosives ({{agent.skills.explosives}})</li>
-          <li *ngIf="agent.skills.marksmanship > 5">Marksmanship ({{agent.skills.marksmanship}})</li>
-          <li *ngIf="agent.skills.martialArt > 5">Martial Art ({{agent.skills.martialArt}})</li>
-          <li *ngIf="agent.skills.stealth > 5">Stealth ({{agent.skills.stealth}})</li>
-          <li *ngIf="agent.skills.strength > 5">Strength ({{agent.skills.strength}})</li>
-          <li *ngIf="agent.skills.medical > 5">Medical ({{agent.skills.medical}})</li>
-        </ul>
+        <article>
+          <div class="agent-info">
+            <div>
+              <label>Code:</label><span>{{agent.code}}</span>
+            </div>
+            <div>
+              <label>Name:</label><span>{{agent.name}}</span>
+            </div>
+            <br>
+            <label>Specialties:</label>
+            <ul>
+              <li *ngIf="agent.skills.explosives > 5">Explosives ({{agent.skills.explosives}})</li>
+              <li *ngIf="agent.skills.marksmanship > 5">Marksmanship ({{agent.skills.marksmanship}})</li>
+              <li *ngIf="agent.skills.martialArt > 5">Martial Art ({{agent.skills.martialArt}})</li>
+              <li *ngIf="agent.skills.stealth > 5">Stealth ({{agent.skills.stealth}})</li>
+              <li *ngIf="agent.skills.strength > 5">Strength ({{agent.skills.strength}})</li>
+              <li *ngIf="agent.skills.medical > 5">Medical ({{agent.skills.medical}})</li>
+            </ul>
+          </div>
+          <agm-map [latitude]="agent.location.lat" [longitude]="agent.location.lon"></agm-map>
+        </article>
       </p-accordionTab>
     </p-accordion>
   </div>
