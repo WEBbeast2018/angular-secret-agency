@@ -8,12 +8,23 @@ import { Agent } from '../../models/Agent';
   styleUrls: ['./personnel.component.scss']
 })
 export class PersonnelComponent implements OnInit {
+  allAgents: Agent[];
   agents: Agent[];
 
   constructor(private agentService: AgentService) { }
 
   ngOnInit() {
-    this.agents = this.agentService.getAgents();
+    this.allAgents = this.agentService.getAgents();
+    this.agents = this.allAgents;
+  }
+
+  filterBySkill(event) {
+    const value = event.target.value;
+    if (value === 'null') {
+      this.agents = this.allAgents;
+    } else {
+      // this.agents = ???
+    }
   }
 
 }

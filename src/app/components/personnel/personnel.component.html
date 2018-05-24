@@ -1,5 +1,17 @@
 <div>
   <h1>Personnel</h1>
+  <div>
+    show top agent by skill:
+    <select (change)="filterBySkill($event)">
+      <option value="null">-</option>
+      <option value="explosives">Explosives</option>
+      <option value="marksmanship">Marksmanship</option>
+      <option value="martialArt">Martial Art</option>
+      <option value="stealth">Stealth</option>
+      <option value="strength">Strength</option>
+      <option value="medical">Medical</option>
+    </select>
+  </div>
   <article *ngFor="let agent of agents">
     <div>
       <label>Code:</label><span>{{agent.code}}</span>
