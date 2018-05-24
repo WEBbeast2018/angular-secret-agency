@@ -3,6 +3,7 @@ export class Agent {
   name: string;
   age: number;
   skills: Skills;
+  location: {lat: number, lon: number};
 }
 
 interface Skills {
