@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PersonnelComponent } from './components/personnel/personnel.component';
 import { ThemeComponent } from './components/theme/theme.component';
 import { NewAgentComponent } from './components/new-agent/new-agent.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NewAgentComponent } from './components/new-agent/new-agent.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
