@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { AccordionModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AgmCoreModule } from '@agm/core';
     AccordionModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+      apiKey: environment.mapApiKey
     })
   ],
   providers: [],
