@@ -1,3 +1,65 @@
-<p>
-  new-agent works!
-</p>
+<div class="container">
+  <h1>New Agent</h1>
+  <form (ngSubmit)="submitAgent()" #f="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required
+             [(ngModel)]="agent.name" name="name" #name="ngModel">
+      <label [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input type="text" class="form-control" id="code" required
+             [(ngModel)]="agent.code" name="code" #code="ngModel">
+      <label [hidden]="code.valid || code.pristine"
+           class="alert alert-danger">
+        Code is required
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" id="age" min="0" max="120" required
+             [(ngModel)]="agent.age" name="age" #age="ngModel">
+      <label [hidden]="age.valid || age.pristine"
+           class="alert alert-danger">
+        Age is required
+      </label>
+    </div>
+
+    <div class="form-group skills">
+      <p>Skills</p>
+
+      <label for="martialArt">Martial Art</label>
+      <input type="number" class="form-control" id="martialArt" min="0" max="10"
+             [(ngModel)]="agent.skills.martialArt" name="martialArt">
+
+      <label for="marksmanship">Marksmanship</label>
+      <input type="number" class="form-control" id="marksmanship" min="0" max="10"
+             [(ngModel)]="agent.skills.martialArt" name="marksmanship">
+
+      <label for="explosives">Explosives</label>
+      <input type="number" class="form-control" id="explosives" min="0" max="10"
+             [(ngModel)]="agent.skills.explosives" name="explosives">
+
+      <label for="medical">Medical</label>
+      <input type="number" class="form-control" id="medical" min="0" max="10"
+             [(ngModel)]="agent.skills.medical" name="medical">
+
+      <label for="strength">Strength</label>
+      <input type="number" class="form-control" id="strength" min="0" max="10"
+             [(ngModel)]="agent.skills.strength" name="strength">
+
+      <label for="stealth">Stealth</label>
+      <input type="number" class="form-control" id="stealth" min="0" max="10"
+             [(ngModel)]="agent.skills.stealth" name="stealth">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Submit</button>
+
+  </form>
+</div>
