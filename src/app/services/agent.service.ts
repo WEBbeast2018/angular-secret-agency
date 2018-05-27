@@ -28,14 +28,14 @@ export class AgentService {
         age: 45,
         name: 'Agent K',
         skills: { martialArt: 6, marksmanship: 6, explosives: 10, medical: 5, strength: 5, stealth: 4 },
-        location: {lat: 24.7092534494744, lon: 24.7092534494744}
+        location: {lat: 53.342337680966416, lon: -6.266852717645634}
       },
       {
         code: '005',
         age: 32,
         name: 'Agent J',
         skills: { martialArt: 8, marksmanship: 3, explosives: 5, medical: 3, strength: 8, stealth: 8 },
-        location: {lat: 24.7092534494744, lon: 24.7092534494744}
+        location: {lat: 53.342337680966416, lon: -6.266852717645634}
       },
       {
         code: '004',

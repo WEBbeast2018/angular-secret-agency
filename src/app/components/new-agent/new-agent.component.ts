@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Agent } from '../../models/Agent';
+import { AgentService } from '../../services/agent.service';
 
 @Component({
   selector: 'app-new-agent',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-agent.component.scss']
 })
 export class NewAgentComponent implements OnInit {
+  agent = new Agent();
 
-  constructor() { }
+  constructor(private agentService: AgentService) {
+  }
 
   ngOnInit() {
   }
 
+  submitAgent() {
+    this.agentService.addAgent(this.agent);
+  }
 }
