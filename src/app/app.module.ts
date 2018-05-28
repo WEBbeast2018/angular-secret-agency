@@ -11,6 +11,7 @@ import { AccordionModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule, MatSelectModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,12 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: environment.mapApiKey
-    })
+    }),
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,40 +1,48 @@
 <div>
   <h1>Personnel</h1>
   <div>
-    show top agent by skill:
-    <select (change)="filterBySkill($event)">
-      <option value="none">-</option>
-      <option value="explosives">Explosives</option>
-      <option value="marksmanship">Marksmanship</option>
-      <option value="martialArt">Martial Art</option>
-      <option value="stealth">Stealth</option>
-      <option value="strength">Strength</option>
-      <option value="medical">Medical</option>
-    </select>
+    show top agent by:
+    <mat-form-field>
+      <mat-select placeholder="Choose a skill" (selectionChange)="filterBySkill($event)">
+        <mat-option value="none">-</mat-option>
+        <mat-option value="explosives">Explosives</mat-option>
+        <mat-option value="marksmanship">Marksmanship</mat-option>
+        <mat-option value="martialArt">Martial Art</mat-option>
+        <mat-option value="stealth">Stealth</mat-option>
+        <mat-option value="strength">Strength</mat-option>
+        <mat-option value="medical">Medical</mat-option>
+      </mat-select>
+    </mat-form-field>
+
 
     <p-accordion>
-      <p-accordionTab *ngFor="let agent of agents" header="{{agent.name}}">
-        <article>
-          <div class="agent-info">
-            <div>
-              <label>Code:</label><span>{{agent.code}}</span>
+      <p-accordionTab *ngFor="let agent of agents">
+        <p-header>
+          <button mat-button>{{agent.name}}</button>
+        </p-header>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Code: {{agent.code}}</mat-card-title>
+            <mat-card-subtitle>Name: {{agent.name}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="agent-info">
+              <div>
+                <label>Age:</label><span>{{agent.age}}</span>
+              </div>
+              <label>Specialties:</label>
+              <ul>
+                <li *ngIf="agent.skills.explosives > 5">Explosives ({{agent.skills.explosives}})</li>
+                <li *ngIf="agent.skills.marksmanship > 5">Marksmanship ({{agent.skills.marksmanship}})</li>
+                <li *ngIf="agent.skills.martialArt > 5">Martial Art ({{agent.skills.martialArt}})</li>
+                <li *ngIf="agent.skills.stealth > 5">Stealth ({{agent.skills.stealth}})</li>
+                <li *ngIf="agent.skills.strength > 5">Strength ({{agent.skills.strength}})</li>
+                <li *ngIf="agent.skills.medical > 5">Medical ({{agent.skills.medical}})</li>
+              </ul>
             </div>
-            <div>
-              <label>Name:</label><span>{{agent.name}}</span>
-            </div>
-            <br>
-            <label>Specialties:</label>
-            <ul>
-              <li *ngIf="agent.skills.explosives > 5">Explosives ({{agent.skills.explosives}})</li>
-              <li *ngIf="agent.skills.marksmanship > 5">Marksmanship ({{agent.skills.marksmanship}})</li>
-              <li *ngIf="agent.skills.martialArt > 5">Martial Art ({{agent.skills.martialArt}})</li>
-              <li *ngIf="agent.skills.stealth > 5">Stealth ({{agent.skills.stealth}})</li>
-              <li *ngIf="agent.skills.strength > 5">Strength ({{agent.skills.strength}})</li>
-              <li *ngIf="agent.skills.medical > 5">Medical ({{agent.skills.medical}})</li>
-            </ul>
-          </div>
-          <agm-map [latitude]="agent.location.lat" [longitude]="agent.location.lon"></agm-map>
-        </article>
+            <agm-map [latitude]="agent.location.lat" [longitude]="agent.location.lon"></agm-map>
+          </mat-card-content>
+        </mat-card>
       </p-accordionTab>
     </p-accordion>
   </div>

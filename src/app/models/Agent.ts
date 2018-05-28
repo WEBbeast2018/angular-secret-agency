@@ -14,6 +14,7 @@ export class Agent {
       strength: 0,
       stealth: 0
     };
+    this.location = { lat: 32.0852999, lon: 34.78176759999997 };
   }
 }
 

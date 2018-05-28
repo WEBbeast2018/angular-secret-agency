@@ -1,10 +1,19 @@
+$formPadding: 5px;
 .form-group.skills {
+  padding: $formPadding;
   input {
-    width: 30px;
+    width: 50px;
     margin: auto 10px;
+  }
+  mat-form-field {
+    width: 60px;
+    padding: $formPadding;
+
   }
 }
 
-.alert.alert-danger{
-  color: red;
+.full-width{
+  display: block;
+  width: 200px;
+  padding: $formPadding;
 }

@@ -21,7 +21,7 @@ export class PersonnelComponent implements OnInit {
   }
 
   filterBySkill(event) {
-    const skill = event.target.value;
+    const skill = event.value;
     if (skill === 'none') {
       this.agents = this.allAgents;
     } else {
