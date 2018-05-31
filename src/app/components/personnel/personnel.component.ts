@@ -3,6 +3,8 @@ import { maxBy } from 'lodash';
 import { Store } from '@ngrx/store';
 import { IAgentsState } from '../../state/agents/agent.reducer';
 import { Agent } from '../../state/agents/agent.model';
+import { IPersonnelState } from '../../state/personnel/personnel.reducer';
+import { PersonnelAction } from '../../state/personnel/personnel.actions';
 
 @Component({
   selector: 'app-personnel',
@@ -10,8 +12,9 @@ import { Agent } from '../../state/agents/agent.model';
   styleUrls: ['./personnel.component.scss']
 })
 export class PersonnelComponent implements OnInit {
-  allAgents: Agent[] = [];
-  agents: Agent[] = [];
+  allAgents: Agent[];
+  agents: Agent[];
+  filter: string;
 
   constructor(private store: Store<IAgentsState>) {
   }
@@ -21,16 +24,18 @@ export class PersonnelComponent implements OnInit {
         this.agents = agentsCollection;
         this.allAgents = agentsCollection;
     });
+    this.store.select<IPersonnelState>('personnel').subscribe( (personnelState: IPersonnelState) => {
+      this.filter = personnelState.filter;
+      if (this.filter === 'none') {
+        this.agents = this.allAgents;
+      } else {
+        const topAgent = maxBy(this.allAgents, agent => agent.skills[this.filter]);
+        this.agents = [topAgent];
+      }
+    });
   }
 
   filterBySkill(event) {
-    const skill = event.value;
-    if (skill === 'none') {
-      this.agents = this.allAgents;
-    } else {
-      const topAgent = maxBy(this.allAgents, agent => agent.skills[skill]);
-      this.agents = [topAgent];
-    }
+    this.store.dispatch(new PersonnelAction.SetFilter(event.value));
   }
-
 }

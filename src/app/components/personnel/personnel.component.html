@@ -3,7 +3,7 @@
   <div>
     show top agent by:
     <mat-form-field>
-      <mat-select placeholder="Choose a skill" (selectionChange)="filterBySkill($event)">
+      <mat-select [(ngModel)]="filter" placeholder="Choose a skill" (selectionChange)="filterBySkill($event)">
         <mat-option value="none">-</mat-option>
         <mat-option value="explosives">Explosives</mat-option>
         <mat-option value="marksmanship">Marksmanship</mat-option>
