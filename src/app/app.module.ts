@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
 import { MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { StateModule } from './state/state.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule, MatS
     MatCheckboxModule,
     MatInputModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    StateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

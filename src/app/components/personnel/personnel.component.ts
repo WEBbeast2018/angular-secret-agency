@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AgentService } from '../../services/agent.service';
-import { Agent } from '../../models/Agent';
 import { maxBy } from 'lodash';
+import { Store } from '@ngrx/store';
+import { IAgentsState } from '../../state/agents/agent.reducer';
+import { Agent } from '../../state/agents/agent.model';
 
 @Component({
   selector: 'app-personnel',
@@ -9,15 +10,17 @@ import { maxBy } from 'lodash';
   styleUrls: ['./personnel.component.scss']
 })
 export class PersonnelComponent implements OnInit {
-  allAgents: Agent[];
-  agents: Agent[];
+  allAgents: Agent[] = [];
+  agents: Agent[] = [];
 
-  constructor(private agentService: AgentService) {
+  constructor(private store: Store<IAgentsState>) {
   }
 
   ngOnInit() {
-    this.allAgents = this.agentService.getAgents();
-    this.agents = this.allAgents;
+    this.store.select<IAgentsState>('agents').subscribe( (agentsCollection: IAgentsState) => {
+        this.agents = agentsCollection;
+        this.allAgents = agentsCollection;
+    });
   }
 
   filterBySkill(event) {

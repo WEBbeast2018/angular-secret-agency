@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Agent } from '../../models/Agent';
-import { AgentService } from '../../services/agent.service';
+import { Agent } from '../../state/agents/agent.model';
+import { IAgentsState } from '../../state/agents/agent.reducer';
+import { Store } from '@ngrx/store';
+import { AddAgent } from '../../state/agents/agent.actions';
 
 @Component({
   selector: 'app-new-agent',
@@ -10,13 +12,13 @@ import { AgentService } from '../../services/agent.service';
 export class NewAgentComponent implements OnInit {
   agent = new Agent();
 
-  constructor(private agentService: AgentService) {
+  constructor(private store: Store<IAgentsState>) {
   }
 
   ngOnInit() {
   }
 
   submitAgent() {
-    this.agentService.addAgent(this.agent);
+    this.store.dispatch(new AddAgent(this.agent));
   }
 }
