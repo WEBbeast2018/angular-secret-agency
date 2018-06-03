@@ -1,3 +1,12 @@
-.selected {
-  color: #2a79ff;
+:host {
+  background-color: black;
+  .selected {
+    color: #2a79ff;
+  }
+  mat-progress-bar {
+    visibility: hidden;
+    &.visible {
+      visibility: visible;
+    }
+  }
 }

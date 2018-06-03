@@ -11,7 +11,14 @@ import { AccordionModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule, MatSelectModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatSelectModule
+} from '@angular/material';
 import { StateModule } from './state/state.module';
 
 @NgModule({
@@ -35,6 +42,7 @@ import { StateModule } from './state/state.module';
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    MatProgressBarModule,
     StateModule
   ],
   providers: [],

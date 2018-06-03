@@ -3,12 +3,14 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { agentReducer } from './agents/agent.reducer';
 import { personnelReducer } from './personnel/personnel.reducer';
+import { appReducer } from './app/app.reducer';
 
 @NgModule({
   imports: [
     StoreModule.forRoot({
       agents: agentReducer,
-      personnel: personnelReducer
+      personnel: personnelReducer,
+      app: appReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],

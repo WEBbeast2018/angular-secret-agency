@@ -1,5 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <nav>
+  <mat-progress-bar [class.visible]="loading"
+    mode="indeterminate">
+  </mat-progress-bar>
   <button mat-button routerLink="/personnel" routerLinkActive="selected">
     Personnel
   </button>
