@@ -5,6 +5,7 @@ import { IAgentsState } from '../../state/agents/agent.reducer';
 import { Agent } from '../../state/agents/agent.model';
 import { IPersonnelState } from '../../state/personnel/personnel.reducer';
 import { PersonnelAction } from '../../state/personnel/personnel.actions';
+import { AppAction } from '../../state/app/app.actions';
 
 @Component({
   selector: 'app-personnel',
@@ -36,6 +37,10 @@ export class PersonnelComponent implements OnInit {
   }
 
   filterBySkill(event) {
-    this.store.dispatch(new PersonnelAction.SetFilter(event.value));
+    this.store.dispatch(new AppAction.ToggleLoader(true));
+    // simulate work
+    setTimeout(() => {
+      this.store.dispatch(new PersonnelAction.SetFilter(event.value));
+    }, 1000);
   }
 }
