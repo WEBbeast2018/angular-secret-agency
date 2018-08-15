@@ -4,7 +4,7 @@
     <mat-form-field class="full-width">
       <input matInput placeholder="Agent name" type="text" required
              [(ngModel)]="agent.name" name="name" #name="ngModel">
-      <mat-error *ngIf="(name.valid || name.pristine)">
+      <mat-error [hidden]="name.valid || name.pristine">
         Name is required
       </mat-error>
     </mat-form-field>
